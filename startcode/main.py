@@ -1,5 +1,6 @@
-from startcode.breakout_module import setup_venster, initialiseer_bal, update_bal
-
+from startcode.breakout_module import *
+import  pygame
+import  sys
 venster_breedte = 590
 venster_hoogte = 480
 bal_positie = [venster_breedte // 2, venster_hoogte// 2]
@@ -22,7 +23,7 @@ wit = (255, 255, 255)
 zwart = (0, 0, 0)
 def teken_spel():
     venster.fill(zwart)
-    pygame.draw.rect(venster, wit
+    pygame.draw.rect(venster, wit,
                         (peddel_positie[0] - (peddel_breedte // 2), peddel_positie[1], peddel_breedte,peddel_hoogte ))
     pygame.draw.circle(venster, wit, bal_positie, bal_grootte)
     for blok in blokken:
@@ -36,5 +37,5 @@ while not spel_voorbij:
                 pygame.quit()
                 sys.exit()
         teken_spel()
-        bal_positie, bal_snelheid = update_bal()()
-        klock.tick(60)
+        bal_positie, bal_snelheid = update_bal()
+        klok.tick(60)
